@@ -1,29 +1,30 @@
-import React from 'react'
+import React from "react";
 
-const ServiceCard = ({ title, description }) => {
+const ServiceCard = ({ title, description, image }) => {
   return (
-    <div className="w-80 h-auto rounded-2xl shadow-lg bg-white hover:shadow-2xl transition-shadow duration-300 mx-auto">
+    <div className="w-full max-w-sm rounded-2xl shadow-lg bg-white hover:shadow-2xl transition-transform transform hover:scale-105 duration-300 mx-auto">
       {/* Image */}
       <div className="rounded-t-2xl overflow-hidden">
         <img
-          src="https://t3.ftcdn.net/jpg/07/36/96/96/360_F_736969693_81Hm9gJNf0GumgIOVASQVe4d1vdgXgSn.jpg"
+          src={
+            image ||
+            "https://t3.ftcdn.net/jpg/07/36/96/96/360_F_736969693_81Hm9gJNf0GumgIOVASQVe4d1vdgXgSn.jpg"
+          }
           alt={title}
-          className="rounded-t-2xl w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+          className="rounded-t-2xl w-full h-56 object-cover hover:scale-110 transition-transform duration-500"
         />
       </div>
 
       {/* Content */}
-      <div className="p-4 text-center">
-        <h2 className="text-xl font-bold text-gray-900 mb-2">{title}</h2>
-        <p className="text-gray-600 text-sm mb-4 px-2">{description}</p>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition-colors duration-300">
+      <div className="p-5 text-center">
+        <h2 className="text-xl font-bold text-gray-900 mb-3">{title}</h2>
+        <p className="text-gray-600 text-sm mb-4">{description}</p>
+        <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
           Explore
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ServiceCard
-        
-
+export default ServiceCard;
