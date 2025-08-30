@@ -12,8 +12,8 @@ const Layout = () => {
     <main className='min-h-screen'>
       <Outlet/>
     </main>
-    <button>MIC</button>
-    <Chat />
+    {/* <button>MIC</button>
+    <Chat /> */}
     <Footer />
     </>
   )
