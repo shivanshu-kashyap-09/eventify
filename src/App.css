@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 #root {
-  text-align: center;
+  /* text-align: center; */
   width: 100%;
   background-color: white;
   color: black;
