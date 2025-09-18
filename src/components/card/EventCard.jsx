@@ -1,7 +1,18 @@
 import React from 'react';
-
+import { useNavigate } from "react-router-dom";
 
 const EventCard = ({ title, description, image }) => {
+  const navigate = useNavigate();
+
+  const handlePlan = async (eventName) => {
+    try {
+      navigate(`/plan/${eventName}`);
+      return;
+    } catch (error) {
+      console.error("error occured during plan : ",error);
+      
+    }
+  }
   return (
     <div className="  bg-sky-50 rounded-xl shadow-lg hover:shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out border border-gray-100 ">
       <div className="h-40 flex-shrink-0 relative">
@@ -21,7 +32,8 @@ const EventCard = ({ title, description, image }) => {
           </p>
         </div>
         <div className="mt-3 text-center ">
-          <button className=" bg-indigo-600 text-white font-bold py-1 px-7  rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105">
+          <button className=" bg-indigo-600 text-white font-bold py-1 px-7  rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105" 
+          onClick={() => handlePlan(title)}>
             BOOK EVENT
           </button>
         </div>

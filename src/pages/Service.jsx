@@ -2,6 +2,7 @@ import React from 'react'
 
 import Filter from '../components/public/Filter'
 import ServiceCard from '../components/card/ServiceCard'
+import { Link } from 'react-router-dom'
 
 const Service = () => {
   return (

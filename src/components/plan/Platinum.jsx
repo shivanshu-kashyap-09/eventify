@@ -1,8 +1,10 @@
 import React from "react";
 import { Check } from "lucide-react";
 import { MdCurrencyRupee } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
-const Platinum = () => {
+const Platinum = ({eventName}) => {
+  const navigate = useNavigate();
   return (
     <div
       className="rounded-2xl lg:rounded-l-none shadow-md 
@@ -45,6 +47,7 @@ const Platinum = () => {
           style={{ backgroundColor: "#cef6ff" }}
           className="text-black py-2 px-4 sm:px-6 rounded-lg shadow-md 
                      w-full sm:w-[260px] md:w-[280px] lg:w-[300px] border-2 border-sky-500"
+                     onClick={() => {navigate(`/event/${eventName}`)}}
         >
           EXPLORE
         </button>
