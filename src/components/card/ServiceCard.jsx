@@ -1,149 +1,3 @@
-// import React from 'react';
-// import Sneakers from "../assets/shoescategoryimg/image.png";
-
-// const eventsData = [
-//   {
-//     title: "Baby Shower ",
-//     description: "A heartwarming event to celebrate the beautiful journey of motherhood.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Housewarming Party",
-//     description: "Turn your new house into a home filled with laughter and good company.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Wedding Anniversary",
-//     description: "Celebrate your enduring love story with an elegant and memorable dinner.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Naming Ceremony",
-//     description: "A beautiful, traditional ceremony to introduce your little one to the world.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Diwali Card Party",
-//     description: "An exciting evening of card games, delicious food, and festive fun.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Holi Celebration",
-//     description: "A vibrant explosion of colors, music, and joy for a lively celebration.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Wedding Ceremony",
-//     description: "We handle every detail of your big day, from engagement to reception.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Birthday Party",
-//     description: "Custom themes, fun activities, and lots of cake to make wishes come true.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Corporate Gala",
-//     description: "A sophisticated and impressive gala for your company's employees and clients.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Product Launch",
-//     description: "Make a powerful first impression with a professional product launch event.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Graduation Party",
-//     description: "A fun and memorable party to celebrate a major academic milestone.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Retirement Party",
-//     description: "Honor a distinguished career with a heartfelt and memorable send-off.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Engagement Party",
-//     description: "Celebrate the start of your journey together with a engagement party.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "New Year's Eve Bash",
-//     description: "A spectacular party with music and lights to welcome the new year in style.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Charity Fundraiser",
-//     description: "An impactful event to support a cause you're passionate about.",
-//     image: Sneakers
-//   },
-//   {
-//     title: "Family Reunion",
-//     description: "A fun-filled day for the entire family to reconnect and create new memories.",
-//     image: Sneakers
-//   }
-// ];
-
-
-// const EventCar = ({ title, description, image }) => {
-//   return (
-//     <div className="  bg-sky-50 rounded-xl shadow-lg hover:shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out border border-gray-100 ">
-//       <div className="h-40 flex-shrink-0 relative">
-//         <img 
-//           className="w-full h-full object-cover" 
-//           src={image} 
-//           alt={title} 
-//         />
-//         <h3 className="absolute bottom-0 left-0 right-0 p-4 pb-2 text-2xl font-bold text-white bg-gradient-to-t from-black/100 to-transparent">
-//           {title}
-//         </h3>
-//       </div>
-//       <div className="p-4 flex flex-col flex-grow">
-//         <div className="flex-grow">
-//           <p className="text-gray-700 text-[14px]  overflow-hidden">
-//             {description}
-//           </p>
-//         </div>
-//         <div className="mt-3 text-center ">
-//           <button className=" bg-indigo-600 text-white font-bold py-1 px-7  rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50 transition-all duration-300 transform hover:scale-105">
-//             BOOK EVENT
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default function EventCard() {
-//   return (
-//     <div className="bg-slate-50 min-h-screen font-sans">
-//       <div className="container mx-auto px-6 sm:px-8 lg:px-35 py-15">
-//         <header className="text-center mb-12">
-//           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
-//             Our Events
-//           </h1>
-//           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-//             Choose from our wide range of celebration services
-//           </p>
-//         </header>
-//         <main>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-//             {eventsData.map((event, index) => (
-//               <EventCar
-//                 key={index}
-//                 title={event.title}
-//                 description={event.description}
-//                 image={event.image}
-//               />
-//             ))}
-//           </div>
-//         </main>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 import React from 'react';
 
 // Main App Component containing all logic
@@ -186,7 +40,11 @@ export default function ServiceCard() {
       <div className="w-full">
         {/* Map through the servicesData array to render each card */}
         {servicesData.map((service) => (
-          <div key={service.id} className="mb-8">
+          <div key={service.id} className="mb-8"
+            onClick={() => {
+              console.log("hello");
+            }}
+          >
             <h2 className="text-2xl font-bold text-gray-800 mb-3">{service.title}</h2>
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-2xl mx-auto border border-gray-200">
               <div className="flex flex-col md:flex-row">
@@ -196,7 +54,7 @@ export default function ServiceCard() {
                     className="h-full w-full object-cover"
                     src={service.imageUrl}
                     alt={service.title}
-                    onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/600x400/e2e8f0/4a5568?text=Image'; }}
+                    onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e2e8f0/4a5568?text=Image'; }}
                   />
                 </div>
 
@@ -208,7 +66,7 @@ export default function ServiceCard() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
-                  
+
                   <div>
                     <h3 className="text-xl font-semibold text-gray-700 mb-2">Description</h3>
                     <p className="text-gray-600 text-sm leading-relaxed mb-4">
@@ -217,7 +75,7 @@ export default function ServiceCard() {
                   </div>
 
                   <div className="space-y-4">
-                     {/* Rating Section */}
+                    {/* Rating Section */}
                     <div className="flex items-center justify-between">
                       <p className="font-medium text-gray-700">Rating</p>
                       <div className="flex items-center">
@@ -226,14 +84,19 @@ export default function ServiceCard() {
                         ))}
                       </div>
                     </div>
-                    
+
                     {/* Price and Change Button Section */}
                     <div className="flex items-center justify-between">
-                       <div>
-                          <p className="font-medium text-gray-700">Price</p>
-                          <p className="text-2xl font-bold text-gray-900">${service.price}</p>
-                       </div>
-                      <button className="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg">
+                      <div>
+                        <p className="font-medium text-gray-700">Price</p>
+                        <p className="text-2xl font-bold text-gray-900">${service.price}</p>
+                      </div>
+                      <button className="bg-indigo-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          console.log("change");
+                        }}
+                      >
                         Change
                       </button>
                     </div>

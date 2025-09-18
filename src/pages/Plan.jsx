@@ -5,8 +5,10 @@ import Silver from "../components/plan/Silver";
 import Gold from "../components/plan/Gold";
 import Platinum from "../components/plan/Platinum";
 import Customize from "../components/plan/Customize";
+import { useParams } from "react-router-dom";
 
 const Plan = () => {
+  const { eventName } = useParams();
   const [showCustomize, setShowCustomize] = useState(false);
 
   // Slider settings for mobile
@@ -35,17 +37,17 @@ const Plan = () => {
         <Slider {...settings}>
           <div className="flex justify-center">
             <div className="w-full max-w-[300px] h-full">
-              <Silver />
+              <Silver eventName={eventName}/>
             </div>
           </div>
           <div className="flex justify-center">
             <div className="w-full max-w-[300px] h-full">
-              <Gold className="shadow-2xl bg-[#e0f7fa]" />
+              <Gold className="shadow-2xl bg-[#e0f7fa]" eventName={eventName}/>
             </div>
           </div>
           <div className="flex justify-center">
             <div className="w-full max-w-[300px] h-full">
-              <Platinum />
+              <Platinum eventName={eventName}/>
             </div>
           </div>
         </Slider>
@@ -55,17 +57,17 @@ const Plan = () => {
       <div className="hidden md:flex justify-center items-end mt-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto gap-6 pt-8">
         {/* Silver Card */}
         <div className="z-0 md:scale-95 lg:scale-100">
-          <Silver />
+          <Silver eventName={eventName}/>
         </div>
 
         {/* Gold Card */}
         <div className="z-10 md:scale-105 lg:scale-110 xl:scale-115">
-          <Gold className="shadow-2xl bg-[#e0f7fa]" />
+          <Gold className="shadow-2xl bg-[#e0f7fa]" eventName={eventName}/>
         </div>
 
         {/* Platinum Card */}
         <div className="z-0 md:scale-95 lg:scale-100">
-          <Platinum />
+          <Platinum eventName={eventName}/>
         </div>
       </div>
 
@@ -77,7 +79,7 @@ const Plan = () => {
         <button
           onClick={() => setShowCustomize(true)}
           style={{ backgroundColor: "#94e4ff" }}
-          className="flex items-center justify-center gap-2 text-black py-3 px-6 rounded-lg shadow-md font-semibold w-full sm:w-auto sm:min-w-[220px] text-center mt-6"
+          className="flex items-center justify-center gap-2 text-black py-3 px-6 rounded-lg shadow-md font-semibold w-full sm:w-auto sm:min-w-[220px] text-center mt-6 mb-6"
         >
           <CiSliderHorizontal size={22} />
           Customize Plan
