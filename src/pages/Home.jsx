@@ -106,7 +106,7 @@ const Home = () => {
       </div>
       {/* <ServiceCard /> */}
       {/* Recommended Services Section */}
-      <div className="my-16 text-center border">
+      <div className="my-4 text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 tracking-wide">
           RECOMMENDED SERVICES
         </h1>
