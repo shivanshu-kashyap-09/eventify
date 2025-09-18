@@ -22,7 +22,7 @@ const About = () => {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-[60%_40%] w-full px-8 lg:px-20 pb-12 lg:pb-20 gap-6 lg:gap-10">
+        <div className="grid grid-cols-[60%_40%] w-full px-8 lg:px-20 gap-6 lg:gap-10">
           {/* Content Part */}
           <div className="text-gray-800 rounded-2xl shadow-xl p-6 lg:p-8 leading-relaxed">
             <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
@@ -95,9 +95,9 @@ const About = () => {
           {/* ✅ Image Part */}
           <div className="hidden md:flex items-center justify-center">
             <img
-              src={dj}
+              src="https://img.freepik.com/free-vector/appointment-booking-with-woman-smartphone_23-2148557484.jpg?t=st=1758183705~exp=1758187305~hmac=adf0a52bff68ebb20853141c06e2ea5276c16d7afb7ee33de3f09d6105bfccf4"
               alt="Event Showcase"
-              className="rounded-2xl shadow-2xl w-full md:h-[60vh] lg:h-[80vh] object-cover opacity-90"
+              className="rounded-2xl shadow-2xl w-full md:h-[90vh] lg:h-[90vh] object-cover opacity-90"
             />
           </div>
         </div>

@@ -81,7 +81,7 @@ const Home = () => {
     <>
       <Hero />
       <div className="bg-slate-50 min-h-screen font-sans">
-        <div className="container mx-auto px-6 sm:px-8 lg:px-35 py-15">
+        <div className="container mx-auto px-6 sm:px-8 lg:px-35 py-4">
           <header className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
               Our Events
@@ -114,7 +114,7 @@ const Home = () => {
           Popular Services Chosen By Our Clients
         </p>
 
-        <div className="w-[95%] md:w-[90%] mx-auto">
+        <div className="w-[95%] md:w-[85%] mx-auto">
           <Slider {...settings}>
             {service.map((item, index) => (
               <div key={index} className="px-3">
@@ -127,7 +127,7 @@ const Home = () => {
       <AboutUs />
       <ChooseUs />
       <HowItWork />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <ContactUs />
     </>
   );

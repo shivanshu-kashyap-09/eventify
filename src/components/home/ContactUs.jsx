@@ -32,10 +32,10 @@ export default function ContactUs() {
 
           <form className="space-y-3 px-10 py-15 pt-5">
             <div>
-              <label className="block text-lg text-gray-800">Full Name</label>
+              <label className="block text-lg text-gray-800">Name</label>
               <input
                 type="text"
-                placeholder="Enter your full name"
+                placeholder="Enter your name"
                 className="w-full mt-1 p-2 bg-white rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-200"
               />
             </div>
@@ -51,8 +51,8 @@ export default function ContactUs() {
               />
             </div>
 
-            <div className="md:flex md:space-x-4">
-              <div className="md:w-1/2">
+            <div>
+              {/* <div className="md:w-1/2"> */}
                 <label className="block text-lg pt-2 text-gray-800">
                   Phone Number
                 </label>
@@ -63,7 +63,7 @@ export default function ContactUs() {
                 />
               </div>
 
-              <div className="md:w-1/2 mt-3 md:mt-0">
+              {/* <div className="md:w-1/2 mt-3 md:mt-0">
                 <label className="block text-lg pt-2 text-gray-800">
                   Issue Type
                 </label>
@@ -80,8 +80,8 @@ export default function ContactUs() {
                   <option>Product Feedback</option>
                   <option>Other</option>
                 </select>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
 
             <div>
               <label className="block text-lg pt-2 text-gray-800">

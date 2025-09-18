@@ -42,7 +42,7 @@ const reasons = [
 
 const ChooseUs = () => {
   return (
-    <section className="py-8 md:py-16 md:pb-28 bg-gradient-to-r from-sky-100 via-white to-sky-100 mt-0 mb-0 border">
+    <section className="py-0 md:py-4 md:pb-14 bg-gradient-to-r from-sky-100 via-white to-sky-100 mt-0 mb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-12">

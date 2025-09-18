@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <header
-      className={`transition-all duration-300 px-4 md:px-9 py-4 md:py-6 flex items-center justify-between fixed top-0 z-50 w-full
+      className={`transition-all duration-300 px-4 md:px-9 py-4 md:py-3 flex items-center justify-between fixed top-0 z-50 w-full
     ${scrolled ? "bg-blue-50 shadow-md text-black" : "bg-transparent text-white"}`}
     >
 

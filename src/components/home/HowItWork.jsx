@@ -32,9 +32,9 @@ const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(2);
 
   return (
-    <section className="py-12 pt-25  h-180 px-4 sm:px-6 md:px-12 lg:px-30 bg-gradient-to-b from-white to-blue-50 w-full">
+    <section className="py-4 px-4 sm:px-6 md:px-12 lg:px-30 bg-gradient-to-b from-white to-blue-50 w-full">
       {/* Heading */}
-      <div className="text-center max-w-2xl mx-auto mb-25">
+      <div className="text-center max-w-2xl mx-auto mb-15">
         <span className="px-3 py-1 text-xs sm:text-xl rounded-full bg-blue-100 text-blue-700 font-medium">
           How it works
         </span>

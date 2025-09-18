@@ -2,7 +2,7 @@ import React from "react";
 
 const RecoServiceCard = ({ title, description, image }) => {
   return (
-    <div className="w-full max-w-sm rounded-2xl shadow-lg bg-white hover:shadow-2xl transition-transform transform hover:scale-105 duration-300 mx-auto">
+    <div className="rounded-2xl shadow-lg bg-white hover:shadow-2xl transition-transform transform hover:scale-105 duration-300 mx-auto">
       {/* Image */}
       <div className="rounded-t-2xl overflow-hidden h-sm">
         <img
