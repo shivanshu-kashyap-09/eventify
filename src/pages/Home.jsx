@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Hero from "../components/home/Hero";
 import EventCard from "../components/card/EventCard";
 import ServiceCard from "../components/card/ServiceCard";
+import RecoServiceCard from "../components/card/RecoServiceCard";
 import AboutUs from "../components/home/About";
 import ChooseUs from "../components/home/ChooseUs";
 import HowItWork from "../components/home/HowItWork";
@@ -13,9 +14,11 @@ import NextArrow from '../design/service/NextArrow'
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"
-import RecoServiceCard from "../components/card/RecoServiceCard";
+import axios from 'axios'
 
 const Home = () => {
+  const[service, setService] = useState([]);
+
   const settings = {
     dots: false,
     infinite: true, 
@@ -43,15 +46,22 @@ const Home = () => {
       },
     ],
   };
-
-  const data = [
-    { title: "Web Development", description: "Fast, scalable, and modern web apps tailored to your business." },
-    { title: "Mobile App Development", description: "User-friendly mobile apps with smooth performance." },
-    { title: "UI/UX Design", description: "Beautiful, intuitive, and modern design for all platforms." },
-    { title: "SEO Optimization", description: "Boost your online visibility and rank higher on search engines." },
-    { title: "Cloud Solutions", description: "Secure, reliable, and scalable cloud-based services." },
-    { title: "AI & Automation", description: "Smart AI-driven solutions for business growth." },
-  ];
+  
+  const handleServices = async () => {
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/service/get/all`);
+      if(response.status === 200){
+        setService(response.data)
+        // console.log(response.data);
+      }
+    } catch (error) {
+      console.error("error occured in Services. ",error);
+      
+    }
+  }
+  useEffect(() => {
+    handleServices();
+  },[]);
   const eventsData = [
     {
       title: "Baby Shower ",
@@ -179,7 +189,7 @@ const Home = () => {
       </div>
       {/* <ServiceCard /> */}
       {/* Recommended Services Section */}
-      <div className="my-16 text-center">
+      <div className="my-16 text-center border">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 tracking-wide">
           RECOMMENDED SERVICES
         </h1>
@@ -189,9 +199,9 @@ const Home = () => {
 
         <div className="w-[95%] md:w-[90%] mx-auto">
           <Slider {...settings}>
-            {data.map((item, index) => (
+            {service.map((item, index) => (
               <div key={index} className="px-3">
-                <RecoServiceCard title={item.title} description={item.description} />
+                <RecoServiceCard title={item.serviceName} description={item.description} image={item.image} />
               </div>
             ))}
           </Slider>
