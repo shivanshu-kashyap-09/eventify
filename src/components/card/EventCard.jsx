@@ -1,17 +1,17 @@
 import React from 'react';
 
 
-const EventCard = ({ title, description, image }) => {
+const EventCard = ({ eventName, description, image }) => {
   return (
     <div className="  bg-sky-50 rounded-xl shadow-lg hover:shadow-2xl overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out border border-gray-100 ">
       <div className="h-40 flex-shrink-0 relative">
         <img 
           className="w-full h-full object-cover" 
-          src="https://media.istockphoto.com/id/1333977253/photo/male-lion-resting-on-a-rock.jpg?s=612x612&w=0&k=20&c=JZSHUW-GSk49vNiTGwRryqiG2H0HgDh0q7P1Ny985L4="
-          alt={title} 
+          src={image}
+          alt={eventName} 
         />
         <h3 className="absolute bottom-0 left-0 right-0 p-4 pb-2 text-2xl font-bold text-white bg-gradient-to-t from-black/100 to-transparent">
-          {title}
+          {eventName}
         </h3>
       </div>
       <div className="p-4 flex flex-col flex-grow">
