@@ -18,6 +18,7 @@ import axios from 'axios'
 
 const Home = () => {
   const[service, setService] = useState([]);
+  const[event, setEvent] = useState([]);
 
   const settings = {
     dots: false,
@@ -46,6 +47,18 @@ const Home = () => {
       },
     ],
   };
+
+  const handleEvents = async () => {
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/event/get/all`);
+      if(response.status === 200){
+        setEvent(response.data);
+      }
+    } catch (error) {
+      console.error("error occured in events : ",error);
+      
+    }
+  }
   
   const handleServices = async () => {
     try {
@@ -61,105 +74,9 @@ const Home = () => {
   }
   useEffect(() => {
     handleServices();
+    handleEvents();
   },[]);
-  const eventsData = [
-    {
-      title: "Baby Shower ",
-      description:
-        "A heartwarming event to celebrate the beautiful journey of motherhood.",
-      image: "",
-    },
-    {
-      title: "Housewarming Party",
-      description:
-        "Turn your new house into a home filled with laughter and good company.",
-      image: "",
-    },
-    {
-      title: "Wedding Anniversary",
-      description:
-        "Celebrate your enduring love story with an elegant and memorable dinner.",
-      image: "",
-    },
-    {
-      title: "Naming Ceremony",
-      description:
-        "A beautiful, traditional ceremony to introduce your little one to the world.",
-      image: "",
-    },
-    {
-      title: "Diwali Card Party",
-      description:
-        "An exciting evening of card games, delicious food, and festive fun.",
-      image: "",
-    },
-    {
-      title: "Holi Celebration",
-      description:
-        "A vibrant explosion of colors, music, and joy for a lively celebration.",
-      image: "",
-    },
-    {
-      title: "Wedding Ceremony",
-      description:
-        "We handle every detail of your big day, from engagement to reception.",
-      image: "",
-    },
-    {
-      title: "Birthday Party",
-      description:
-        "Custom themes, fun activities, and lots of cake to make wishes come true.",
-      image: "",
-    },
-    {
-      title: "Corporate Gala",
-      description:
-        "A sophisticated and impressive gala for your company's employees and clients.",
-      image: "",
-    },
-    {
-      title: "Product Launch",
-      description:
-        "Make a powerful first impression with a professional product launch event.",
-      image: "",
-    },
-    {
-      title: "Graduation Party",
-      description:
-        "A fun and memorable party to celebrate a major academic milestone.",
-      image: "",
-    },
-    {
-      title: "Retirement Party",
-      description:
-        "Honor a distinguished career with a heartfelt and memorable send-off.",
-      image: "",
-    },
-    {
-      title: "Engagement Party",
-      description:
-        "Celebrate the start of your journey together with a engagement party.",
-      image: "",
-    },
-    {
-      title: "New Year's Eve Bash",
-      description:
-        "A spectacular party with music and lights to welcome the new year in style.",
-      image: "",
-    },
-    {
-      title: "Charity Fundraiser",
-      description:
-        "An impactful event to support a cause you're passionate about.",
-      image: "",
-    },
-    {
-      title: "Family Reunion",
-      description:
-        "A fun-filled day for the entire family to reconnect and create new memories.",
-      image: "",
-    },
-  ];
+
   return (
     <>
       <Hero />
@@ -175,12 +92,12 @@ const Home = () => {
           </header>
           <main>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-              {eventsData.map((event, index) => (
+              {event.map((item, index) => (
                 <EventCard
                   key={index}
-                  title={event.title}
-                  description={event.description}
-                  image={event.image}
+                  title={item.eventName}
+                  description={item.description}
+                  image={item.image}
                 />
               ))}
             </div>
