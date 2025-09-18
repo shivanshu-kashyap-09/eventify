@@ -7,7 +7,7 @@ const EventCard = ({ title, description, image }) => {
       <div className="h-40 flex-shrink-0 relative">
         <img 
           className="w-full h-full object-cover" 
-          src="https://media.istockphoto.com/id/1333977253/photo/male-lion-resting-on-a-rock.jpg?s=612x612&w=0&k=20&c=JZSHUW-GSk49vNiTGwRryqiG2H0HgDh0q7P1Ny985L4="
+          src={image}
           alt={title} 
         />
         <h3 className="absolute bottom-0 left-0 right-0 p-4 pb-2 text-2xl font-bold text-white bg-gradient-to-t from-black/100 to-transparent">
