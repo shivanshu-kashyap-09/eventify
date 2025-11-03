@@ -127,7 +127,7 @@ const Home = () => {
       <AboutUs />
       <ChooseUs />
       <HowItWork />
-      {/* <Testimonial /> */}
+      <Testimonial />
       <ContactUs />
     </>
   );
