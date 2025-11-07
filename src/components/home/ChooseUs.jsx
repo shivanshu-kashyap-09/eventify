@@ -9,40 +9,40 @@ import Feature5 from "../../assets/WhyChooseUsImg/Feature5img.png";
 
 const reasons = [
   {
-    number: "1",
-    icon: Feature1,
-    title: "FAST DELIVERY",
-    description: "Shoes delivered fast to your doorstep.",
+    number: "*",
+    icon: Feature1, 
+    title: "GUARANTEED BOOKINGS",
+    description: "Secure your vendor and date instantly with verified scheduling.",
   },
   {
-    number: "2",
-    icon: Feature4,
+    number: "*",
+    icon: Feature2, 
     title: "SECURE PAYMENTS",
-    description: "Multiple secure payment options.",
+    description: "Multiple verified payment gateways for worry-free transactions.",
   },
   {
-    number: "3",
-    icon: Feature3,
-    title: "EASY RETURNS",
-    description: "Hassle-free returns & exchanges within 30 days.",
+    number: "*",
+    icon: Feature3, 
+    title: "INSTANT SUPPORT",
+    description: "24/7 dedicated planning assistance and quick vendor communication.",
   },
   {
-    number: "4",
-    icon: Feature2,
-    title: "PREMIUM QUALITY",
-    description: "Crafted with premium materials for comfort & durability.",
+    number: "*",
+    icon: Feature4, 
+    title: "VETTED VENDOR QUALITY",
+    description: "Every vendor is certified and reviewed for premium service delivery.",
   },
   {
-    number: "5",
-    icon: Feature5,
-    title: "24/7 SUPPORT",
-    description: "We’re here to help anytime you need.",
+    number: "*",
+    icon: Feature5, 
+    title: "EASY CANCELLATION",
+    description: "Transparent and hassle-free cancellation policies (subject to vendor agreement).",
   },
 ];
 
 const ChooseUs = () => {
   return (
-    <section className="py-0 md:py-4 md:pb-14 bg-gradient-to-r from-sky-100 via-white to-sky-100 mt-0 mb-0">
+    <section className="py-0 md:pt-10 md:pb-30 bg-gradient-to-r from-sky-100 via-white to-sky-100 mt-0 mb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-8 md:mb-12">
@@ -50,7 +50,7 @@ const ChooseUs = () => {
             WHY CHOOSE US
           </h4>
           <h2 className="text-3xl md:text-4xl lg:text-5xl italic font-extrabold text-gray-800 mt-2">
-            Step Into Comfort & Confidence
+            Your Dream Event, Simplified & Stress-Free
           </h2>
         </div>
 
