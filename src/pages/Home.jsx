@@ -8,13 +8,13 @@ import ChooseUs from "../components/home/ChooseUs";
 import HowItWork from "../components/home/HowItWork";
 import Testimonial from "../components/home/Testimonial";
 import ContactUs from "../components/home/ContactUs";
-
 import PrevArrow from '../design/service/PrevArrow'
 import NextArrow from '../design/service/NextArrow'
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"
 import axios from 'axios'
+
 
 const Home = () => {
   const[service, setService] = useState([]);
