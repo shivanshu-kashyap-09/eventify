@@ -18,6 +18,7 @@ import Signup from './pages/auth/Signup'
 import Forget from './pages/auth/Forget'
 import Profile from './pages/auth/Profile'
 import Payment from './pages/Payment'
+import EventsPage from './pages/EventsPage'
 
 function App() {
 
@@ -39,6 +40,9 @@ function App() {
         <Route path='/forget' element={<Forget />} />
         <Route path='/profile/:userId' element={<Profile />} />
         <Route path='/payment' element={<Payment />} />
+        <Route path='/events' element={<EventsPage/>}/>
+        {/* <Route path='/signup' element={<Signup/>}/>  */}
+
         </Route>
       </Routes>
     </Router>

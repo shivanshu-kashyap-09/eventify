@@ -20,11 +20,13 @@ const Header = () => {
 
   const items = [
     { label: "Home", href: "#home" },
-    { label: "Events", href: "#events" },
+    { label: "Events", href: "/events"},
     { label: "Services", href: "#services" },
     { label: "About", href: "#about" },
     { label: "Choose Us", href: "#chooseus" },
     { label: "Contact", href: "#contact" },
+    {label: "login", href:"/login"},
+    {label: "SignUp", href:"/SignUp"}
   ];
 
   return (
