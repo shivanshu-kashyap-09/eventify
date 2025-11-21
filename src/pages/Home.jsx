@@ -128,11 +128,17 @@ const Home = () => {
         </div>
       </div>
       </section>
+      <section id="about">
       <AboutUs />
+    </section>
+    <section id="chooseus">
       <ChooseUs />
+    </section>
       <HowItWork />
       <Testimonial />
+    <section id="contact">
       <ContactUs />
+    </section>
     </>
   );
 };

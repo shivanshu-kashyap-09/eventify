@@ -44,16 +44,6 @@ function App() {
         </Route>
       </Routes>
     </Router>
-
-    <section id="about">
-      <About />
-    </section>
-    <section id="chooseus">
-      <ChooseUs />
-    </section>
-    <section id="contact">
-      <ContactUs />
-    </section>
     </>
   )
 }
