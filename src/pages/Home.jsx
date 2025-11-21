@@ -80,7 +80,8 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <div className="bg-slate-50 min-h-screen font-sans">
+      <section id="events">
+        <div className="bg-slate-50 min-h-screen font-sans">
         <div className="container mx-auto px-6 sm:px-8 lg:px-35 py-4">
           <header className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
@@ -104,9 +105,11 @@ const Home = () => {
           </main>
         </div>
       </div>
+      </section>
       {/* <ServiceCard /> */}
       {/* Recommended Services Section */}
-      <div className="my-4 text-center">
+      <section id="services">
+        <div className="my-4 text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 tracking-wide">
           RECOMMENDED SERVICES
         </h1>
@@ -124,6 +127,7 @@ const Home = () => {
           </Slider>
         </div>
       </div>
+      </section>
       <AboutUs />
       <ChooseUs />
       <HowItWork />

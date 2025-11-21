@@ -19,8 +19,8 @@ const Header = () => {
 
 
   const items = [
-    { label: "Home", href: "#home" },
-    { label: "Events", href: "/events"},
+    { label: "Home", href: "" },
+    { label: "Events", href: "#events" },
     { label: "Services", href: "#services" },
     { label: "About", href: "#about" },
     { label: "Choose Us", href: "#chooseus" },
