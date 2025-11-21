@@ -10,7 +10,7 @@ const Service = () => {
   console.log(decodedEventName);
 
   const [eventService, setEventService] = useState([]);
-  const [serviceVendor, setServiceVendor] = useState({});
+  const [serviceVendor, setServiceVendor] = useState([]);
 
   const handleEvent = async () => {
     try {
@@ -27,6 +27,7 @@ const Service = () => {
 
   const handleServices = async () => {
     try {
+      const vendors = [];
       for (let i = 0; i < eventService.length; i++) {
         const serviceName = eventService[i];
 
@@ -35,15 +36,18 @@ const Service = () => {
         );
 
         if (response.status === 200) {
-          console.log(response.data);
-          
-          setServiceVendor(prev => [...prev, response.data]);
+          vendors.push(response.data);
         }
       }
+      setServiceVendor(vendors);
     } catch (error) {
       console.error("Error in getting service vendors: ", error);
     }
   };
+
+  useEffect(() => {
+  console.log("Updated Vendors:", serviceVendor);
+}, [serviceVendor]);
 
   useEffect(() => {
   if (eventService.length > 0) {

@@ -54,7 +54,7 @@ const Plan = () => {
       </div>
 
       {/* Tablet & Desktop Grid */}
-      <div className="hidden md:flex justify-center items-end mt-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto gap-6 pt-8">
+      <div className="hidden md:flex justify-center items-end my-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto gap-6 pt-8">
         {/* Silver Card */}
         <div className="z-0 md:scale-95 lg:scale-100">
           <Silver eventName={eventName}/>
@@ -72,7 +72,7 @@ const Plan = () => {
       </div>
 
       {/* Customize Button */}
-      <div className="flex flex-col-reverse sm:flex-col items-center mt-10 px-4 text-center">
+      {/* <div className="flex flex-col-reverse sm:flex-col items-center mt-10 px-4 text-center">
         <p className="text-sm sm:text-base text-gray-700 max-w-xl md:text-lg mt-10">
           Need something different? Create a custom plan tailored to your specific needs.
         </p>
@@ -85,9 +85,8 @@ const Plan = () => {
           Customize Plan
         </button>
       </div>
-
-      {/* Show Form */}
-      {showCustomize && <Customize onClose={() => setShowCustomize(false)} />}
+      {showCustomize && <Customize onClose={() => setShowCustomize(false)} />} 
+        */}
     </>
   );
 };
