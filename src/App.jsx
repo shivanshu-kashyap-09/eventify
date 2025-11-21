@@ -22,14 +22,12 @@ import Payment from './pages/Payment'
 function App() {
 
   return (
+    <>
     <Router>
       <Routes>
         <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/chooseus' element={<ChooseUs />} />
         <Route path='/howitwork' element={<HowItWork />} />
-        <Route path='/contactus' element={<ContactUs />} />
         <Route path='/plan/:eventName' element={<Plan />} />
         <Route path='/event/:eventName' element={<Service />} />
         <Route path='/service/:serviceName/:id' element={<ServiceDetail />} />
@@ -42,6 +40,17 @@ function App() {
         </Route>
       </Routes>
     </Router>
+
+    <section id="about">
+      <About />
+    </section>
+    <section id="chooseus">
+      <ChooseUs />
+    </section>
+    <section id="contact">
+      <ContactUs />
+    </section>
+    </>
   )
 }
 
