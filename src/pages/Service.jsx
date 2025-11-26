@@ -4,67 +4,55 @@ import ServiceCard from '../components/card/ServiceCard';
 import { useParams } from "react-router-dom";
 
 const Service = () => {
-  const [apiServices, setApiServices] = useState([]);
   const { eventName } = useParams();
   const decodedEventName = decodeURIComponent(eventName);
-  console.log(decodedEventName);
 
   const [eventService, setEventService] = useState([]);
   const [serviceVendor, setServiceVendor] = useState([]);
 
+  // STEP 1 — Get list of services
   const handleEvent = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/event/service/get/by/${decodedEventName}`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_URL}/event/service/get/by/${decodedEventName}`
+      );
+
       if (response.status === 200) {
-        console.log(response.data.services);
-        
         setEventService(response.data.services);
       }
     } catch (error) {
-      console.error("Error occured in fetching the event service : " + error);
+      console.error("Error in fetching event services:", error);
     }
-  }
+  };
 
+  // STEP 2 — For each service, fetch vendors
   const handleServices = async () => {
     try {
-      const vendors = [];
-      for (let i = 0; i < eventService.length; i++) {
-        const serviceName = eventService[i];
+      const vendorsByService = {};
 
+      for (const serviceName of eventService) {
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/service-option/get/by/serivce/${serviceName}`
         );
 
-        if (response.status === 200) {
-          vendors.push(response.data);
-        }
+        vendorsByService[serviceName] = response.data;
       }
-      setServiceVendor(vendors);
+
+      setServiceVendor(vendorsByService);
     } catch (error) {
-      console.error("Error in getting service vendors: ", error);
+      console.error("Error fetching vendors:", error);
     }
   };
 
   useEffect(() => {
-  console.log("Updated Vendors:", serviceVendor);
-}, [serviceVendor]);
-
-  useEffect(() => {
-  if (eventService.length > 0) {
-    handleServices();
-  }
-}, [eventService]);
-
-
-
-  useEffect(() => {
     handleEvent();
-  }, [])
+  }, []);
 
-  // 👉 Remove card
-  const handleRemoveCard = (id) => {
-    setApiServices(prev => prev.filter(service => service.id !== id));
-  };
+  useEffect(() => {
+    if (eventService.length > 0) {
+      handleServices();
+    }
+  }, [eventService]);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 via-white to-blue-100 py-12 pb-0 font-sans">
@@ -79,19 +67,29 @@ const Service = () => {
           </p>
         </header>
 
-        <main className="space-y-16">
-          {apiServices.length > 0 ? (
-            apiServices.map((service) => (
-              <ServiceCard 
-                key={service.id} 
-                service={service}
-                onClose={() => handleRemoveCard(service.id)} 
-              />
-            ))
-          ) : (
+        <main>
+          {/* Loading services */}
+          {eventService.length === 0 && (
             <h2 className="text-center text-gray-500 text-xl">Loading services...</h2>
           )}
+
+          {/* Loading vendors */}
+          {eventService.length > 0 && Object.keys(serviceVendor).length === 0 && (
+            <h2 className="text-center text-gray-500 text-xl">Loading vendors...</h2>
+          )}
+
+          {/* Data ready */}
+          {eventService.length > 0 && Object.keys(serviceVendor).length > 0 && (
+            eventService.map(service => (
+              <ServiceCard
+                key={service}
+                service={service}
+                vendors={serviceVendor[service]}
+              />
+            ))
+          )}
         </main>
+
 
       </div>
     </div>
