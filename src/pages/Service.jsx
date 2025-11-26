@@ -33,6 +33,11 @@ const Service = () => {
     fetchData();
   }, []);
 
+  // 👉 Remove card
+  const handleRemoveCard = (id) => {
+    setApiServices(prev => prev.filter(service => service.id !== id));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-100 via-white to-blue-100 py-12 pb-0 font-sans">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl mb-24">
@@ -49,7 +54,11 @@ const Service = () => {
         <main className="space-y-16">
           {apiServices.length > 0 ? (
             apiServices.map((service) => (
-              <ServiceCard key={service.id} service={service} />
+              <ServiceCard 
+                key={service.id} 
+                service={service}
+                onClose={() => handleRemoveCard(service.id)} 
+              />
             ))
           ) : (
             <h2 className="text-center text-gray-500 text-xl">Loading services...</h2>

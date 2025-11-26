@@ -20,6 +20,7 @@ import Profile from './pages/auth/Profile'
 import Payment from './pages/Payment'
 import EventsPage from './pages/EventsPage'
 
+
 function App() {
 
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path='/profile/:userId' element={<Profile />} />
         <Route path='/payment' element={<Payment />} />
         <Route path='/events' element={<EventsPage/>}/>
+        {/* <Route path='/vendors-list' element={<VendorsList/>}/> */}
         {/* <Route path='/signup' element={<Signup/>}/>  */}
 
         </Route>
