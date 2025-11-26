@@ -6,7 +6,7 @@ const EventCard = ({ title, description, image }) => {
 
   const handlePlan = async (eventName) => {
     try {
-      navigate(`/plan/${eventName}`);
+      navigate(`/event/${eventName}`);
       return;
     } catch (error) {
       console.error("error occured during plan : ",error);

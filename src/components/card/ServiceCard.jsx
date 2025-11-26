@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
+
 import VendorCard from './VendorCard';
 import Modal from '../../modal/modal';
 
-const ServiceCard = ({ service, onClose }) => {
+const ServiceCard = ({ service, vendors }) => {
+  // console.log(vendors);
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // ⭐ The vendor that will show on the card
-  const [selectedVendor, setSelectedVendor] = useState(service.vendor);
+  // default vendor = first vendor in the list
+  const [selectedVendor, setSelectedVendor] = useState(vendors);
 
   if (!service) return null;
 
-  // Open modal
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
-  // When Add button in modal clicked
   const handleVendorSelect = (vendor) => {
-    setSelectedVendor(vendor);  // ⭐ Update vendor shown in card
-    setIsModalOpen(false);      // Close modal
+    setSelectedVendor(vendor);
+    closeModal();
   };
 
   return (
@@ -27,15 +28,14 @@ const ServiceCard = ({ service, onClose }) => {
 
         {/* LEFT SIDE */}
         <div className="flex flex-col justify-center lg:col-span-1">
-          <h2 className="text-5xl font-bold text-gray-900">{service.title}</h2>
-          <p className="mt-4 text-md text-gray-600 max-w-md">{service.tagline}</p>
+          <h2 className="text-5xl font-bold text-gray-900">{service}</h2>
+          {/* <p className="mt-4 text-md text-gray-600 max-w-md">{service.tagline}</p> */}
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="lg:col-span-2">
+        <div>
           <VendorCard
-            vendor={selectedVendor}  // ⭐ Updated vendor shown here
-            onClose={onClose}
+            vendor={selectedVendor}
             openModal={openModal}
           />
         </div>
@@ -45,8 +45,9 @@ const ServiceCard = ({ service, onClose }) => {
       {/* MODAL */}
       {isModalOpen && (
         <Modal
-          onClose={() => setIsModalOpen(false)}
-          onSelect={handleVendorSelect}  // ⭐ Add button callback
+          vendors={vendors}
+          onClose={closeModal}
+          onSelect={handleVendorSelect}
         />
       )}
     </>
