@@ -1,46 +1,54 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-export default function Login({ switchToSignup, onLoginSuccess }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function Login() {
+  
+  const [loginForm, setLoginForm] = useState(
+    {
+      email: "",
+      password: ""
+    }
+  );
   const [isShow, setIsShow] = useState(true);
-  const navigate=useNavigate(); // modal visible by default
+  const navigate = useNavigate(); // modal visible by default
 
   const onClose = () => {
     setIsShow(false); // hide modal when close clicked
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post(`${import.meta.env}/user/login`, loginForm)
+      if (response.status == 201) {
+        toast.success("login succesfully");
 
-    const savedUser = JSON.parse(localStorage.getItem("kickifyUser"));
+      }
 
-    if (
-      savedUser &&
-      savedUser.email === email &&
-      savedUser.password === password
-    ) {
-      onLoginSuccess({
-        name: `${savedUser.firstName} ${savedUser.lastName}`,
-        photo: savedUser.photo,
-      });
-    } else {
-      alert("Invalid email or password");
+    } catch (error) {
+      toast.error("enter a valid cridential");
+
+
     }
-  };
 
+  }
   // 🔹 This hides the component when isShow is false
-  if (!isShow){
+  if (!isShow) {
     navigate('/');
- return null;
+    return null;
+  }
+
+  const handleClick = () => {
+    navigate('/signUp');
   }
 
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center z-50">
       <div className="relative bg-gradient-to-br from-sky-100 to-sky-50 backdrop-blur-md text-black rounded-2xl shadow-2xl border border-white/20 w-full max-w-md p-6 animate-fadeInUp scale-95 transition-all duration-300">
-        
+
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -51,7 +59,7 @@ export default function Login({ switchToSignup, onLoginSuccess }) {
 
         {/* Title */}
         <h2 className="text-3xl font-bold text-center text-black mb-1 mt-2">
-          KICKIFY
+          EVENTIFY
         </h2>
         <p className="text-sm text-center text-gray-700 mb-7">
           Welcome user, please sign in to continue
@@ -87,8 +95,8 @@ export default function Login({ switchToSignup, onLoginSuccess }) {
             <input
               type="email"
               required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={loginForm.email}
+              onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
               placeholder="Enter your email"
               className="w-full px-4 py-2 rounded-md border border-white shadow-xl bg-white text-black placeholder-gray-600 focus:outline-none focus:border-blue-500"
             />
@@ -99,8 +107,8 @@ export default function Login({ switchToSignup, onLoginSuccess }) {
             <input
               type="password"
               required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={loginForm.password}
+              onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
               placeholder="Enter your password"
               className="w-full px-4 py-2 rounded-md border border-white shadow-xl bg-white text-black placeholder-gray-600 focus:outline-none focus:border-blue-500"
             />
@@ -127,7 +135,7 @@ export default function Login({ switchToSignup, onLoginSuccess }) {
         <p className="text-sm text-center mt-6 text-black">
           Don’t have an account?{" "}
           <button
-            onClick={switchToSignup}
+            onClick={handleClick}
             className="text-blue-500 hover:underline"
           >
             Sign up
